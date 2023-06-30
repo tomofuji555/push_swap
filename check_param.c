@@ -29,7 +29,7 @@ char	**argv__process(int argc, char **argv)
 	{
 		aft_argv = ft_split(argv[1], ' ');
 		if (!aft_argv)
-			;
+			exit (1);  //処理追加で必要？
 	}
 	else
 		aft_argv = argv;
@@ -81,22 +81,21 @@ int *array_num(int argc, char **argv)
 	return (array);
 }
 
-char	**check_param(int argc, char **argv, t_list **a)
+int	*check_param(int argc, char **argv)
 {
 	char	**aft_argv;
 	int		**comp;
 	int		*array;
-	t_list	num;
 
 	if (argc <= 1)  //empty_param(argc, argv)
-		exit (0);
+		exit (1);
+	aft_argv = argv_process(argc, argv);
 	if (not_num (argc, argv))
 		print_error ();
-	aft_argv = argv_process(argc, argv);
 	array = array_num (argc, aft_argv);
-	make_comp();
-	make_node (argc, , a);
-	if (check_dup(argc, aft_argv, *a))
-		print_error ();
-	return (aft_argv);
+	// make_comp();
+	// make_node (argc, , a);
+	// if (check_dup(argc, aft_argv, *a))
+	// 	print_error ();
+	return (array);
 }

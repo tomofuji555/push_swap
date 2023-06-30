@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   coord_comp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/26 20:24:00 by marvin            #+#    #+#             */
-/*   Updated: 2023/06/26 20:24:00 by marvin           ###   ########.fr       */
+/*   Created: 2023/06/30 18:37:39 by marvin            #+#    #+#             */
+/*   Updated: 2023/06/30 18:37:39 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# ifndef PUSH_SWAP
-# define PUSH_SWAP
+#include "push_swap.h"
 
-typedef int data_t;
+int *coord_comp (int *array)
+{
+    size_t  i;
+    size_t  index;
+    size_t  max;
 
-# include   <stdio.h>
-# include	<limits.h>
+    i = 0;
+    while (array[i])
+    {
 
-typedef struct s_list{
-	void			*content;
-    int				index;
-    int				size;
-    struct  s_list	*next;
-} t_list;
-
-int	*check_param(int argc, char **argv);
-
-
-# endif
+        while (index < i)
+        {
+            index++;
+        }
+        i++;
+    }
+}

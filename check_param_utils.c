@@ -21,74 +21,81 @@
 //     return (false);
 // }
 
-bool    not_num(int argc, char **argv)
+int    not_num(int argc, char **argv)
 {
 	size_t	i;
 	size_t	j;
 
 	i = 1;
-	while (argv[i])
+	while (i < argc)
 	{
 		j = 0;
-		while (argv[i][j] != '\0')
+		while (argv[i][j])
 		{
-			if (argv[i][j] < 0 || argv[i][j] > 9)
-				return (true);
-			j++;
+            if (argv[i][0] == '-' || argv[i][0] == '+')
+                j++;
+			else if (argv[i][j] < '0' || argv[i][j] > '9')
+				return (1);
+			else
+                j++;
 		}
 		i++;
 	}
-	return (false);
+	return (0);
 }
 
 int check_dup(int *array)
 {
 	int	i;
-	int	temp;
-
+	int	j;
+	
 	i = 0;
-	temp = 0;
 	while (array[i])
-		i++;
-	while (temp < i)
 	{
-		temp
+        j = i + 1;
+		while (array[j])
+		{
+			if (array[i] == array[j])
+				return (1);
+			j++;
+		}
+		i++;
 	}
 	return (0);
 }
 
-int *ori_strcpy (int *dest, char *src)
-{
-	int	i;
-	i = 0;
-	while (src[i])
-		dest[i++] = (int)src[i++];
-	dest[i] = '\0';
-	return (dest);
-}
+// int *ori_strcpy (int *dest, char *src)
+// {
+// 	int	i;
+// 	i = 0;
+// 	while (src[i])
+// 		dest[i++] = (int)src[i++];
+// 	dest[i] = '\0';
+// 	return (dest);
+// }
 
-int **put_to_array(int argc, char **argv)
-{
-	int **new;
-	int i = 1;
-	int j = 0;
-	int k = 0;
-	if (argc <= 2)
-		exit (1);
-	if (argc > 2)
-	{
-		new = (int **)malloc(sizeof(int *) * argc);
-		while (argv[i])
-		{
-			j = 0;
-			while (argv[i][j])
-				j++;
-			new[k] = (int *)malloc(sizeof(int) *(j + 1));
-			ori_strcpy(new[k], argv[i]);
-			k++;
-			i++;
-		}
-		new[k] = NULL;
-	}
-	return new;
-}
+// int **put_to_array(int argc, char **argv)
+// {
+// 	int **new;
+// 	int i = 1;
+// 	int j = 0;
+// 	int k = 0;
+// 	if (argc <= 2)
+// 		exit (1);
+// 	if (argc > 2)
+// 	{
+// 		new = (int **)malloc(sizeof(int *) * argc);
+// 		while (argv[i])
+// 		{
+// 			j = 0;
+// 			while (argv[i][j])
+// 				j++;
+// 			new[k] = (int *)malloc(sizeof(int) *(j + 1));
+// 			ori_strcpy(new[k], argv[i]);
+// 			k++;
+// 			i++;
+// 		}
+// 		new[k] = NULL;
+// 	}
+// 	return new;
+// }
