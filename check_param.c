@@ -84,12 +84,11 @@ int *array_num(int argc, char **argv)
 int	*check_param(int argc, char **argv)
 {
 	char	**aft_argv;
-	int		**comp;
 	int		*array;
 
 	if (argc <= 1)  //empty_param(argc, argv)
 		exit (1);
-	aft_argv = argv_process(argc, argv);
+	aft_argv = argv_process (argc, argv);
 	if (not_num (argc, argv))
 		print_error ();
 	array = array_num (argc, aft_argv);

@@ -12,6 +12,12 @@
 
 #include "push_swap.h"
 
+int count_array_size (int *array)
+{
+    size_t  i;
+    while (array)
+}
+
 int *coord_comp (int *array)
 {
     size_t  i;

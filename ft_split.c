@@ -89,7 +89,7 @@ char	**ft_split(char const *s, char c)
 	if (!s)
 		return (NULL);
 	block = count_block (s, c);
-	str = (char **) malloc (sizeof (char *) * block + 1);
+	str = (char **) malloc (sizeof (char *) * (block + 1));
 	if (!str)
 		return (NULL);
 	str = split_work (s, c, str, block);

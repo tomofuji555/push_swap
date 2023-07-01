@@ -44,7 +44,7 @@ int    not_num(int argc, char **argv)
 	return (0);
 }
 
-int check_dup(int *array)
+int check_dup(int argc, int *array)
 {
 	int	i;
 	int	j;
