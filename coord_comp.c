@@ -12,25 +12,26 @@
 
 #include "push_swap.h"
 
-int count_array_size (int *array)
+int *coord_comp (int *array, int *size)
 {
     size_t  i;
-    while (array)
-}
-
-int *coord_comp (int *array)
-{
-    size_t  i;
-    size_t  index;
-    size_t  max;
+    size_t  j;
+    size_t  count;
+    int     *aft_array;
 
     i = 0;
-    while (array[i])
+    count = 0;
+    aft_array = (int *) malloc (sizeof (int) * (*size));
+    if (!aft_array)
+        exit (1);
+    while (i < *size - 1)
     {
-
-        while (index < i)
+        j = i + 1;
+        while (j < *size)
         {
-            index++;
+            if (array[i] < array[j])
+                count++;
+            j++;
         }
         i++;
     }

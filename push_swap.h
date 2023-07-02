@@ -25,7 +25,7 @@ typedef struct s_list{
     struct  s_list	*next;
 } t_list;
 
-int	*check_param(int argc, char **argv);
+int	*check_param(int argc, char **argv, int *size);
 
 
 # endif

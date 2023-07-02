@@ -81,20 +81,51 @@ int *array_num(int argc, char **argv)
 	return (array);
 }
 
-int	*check_param(int argc, char **argv)
+long	argv_size (int argc, char **argv)
+{
+	long size;
+	size_t	i;
+	size_t	j;
+
+	size = 0;
+	i = 1;
+	if (argc == 2)
+	{
+		while (argv[i])
+		{
+			j = 0;
+			while (argv[i][j])
+			{
+				j++;
+				size++;
+			}
+			i++;
+		}
+		return (size);
+	}
+	else
+		return (argc -1);
+}
+
+int	*check_param(int argc, char **argv, int *size)
 {
 	char	**aft_argv;
+	long	temp;
 	int		*array;
 
 	if (argc <= 1)  //empty_param(argc, argv)
 		exit (1);
 	aft_argv = argv_process (argc, argv);
+	temp = argv_size (argc, aft_argv);
+	if (temp > INT_MAX)
+		exit (1);
+	*size = temp;
 	if (not_num (argc, argv))
 		print_error ();
 	array = array_num (argc, aft_argv);
 	// make_comp();
 	// make_node (argc, , a);
-	// if (check_dup(argc, aft_argv, *a))
-	// 	print_error ();
+	if (check_dup(argc, aft_argv, &size))
+		print_error ();
 	return (array);
 }
