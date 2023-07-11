@@ -14,11 +14,11 @@
 
 void	print_error(void)
 {
-	ft_printf ("Error\n");
+	printf ("Error\n");
 	exit (1);
 }
 
-char	**argv__process(int argc, char **argv)
+char	**argv_process(int argc, char **argv)
 {
 	char	**aft_argv;
 	size_t	i;
@@ -33,7 +33,7 @@ char	**argv__process(int argc, char **argv)
 	}
 	else
 		aft_argv = argv;
-	retrun (aft_argv);
+	return (aft_argv);
 }
 
 // void    make_node(int argc, char **argv, t_list **a)
@@ -60,7 +60,7 @@ char	**argv__process(int argc, char **argv)
 //         exit (0);
 // }
 
-int *array_num(int argc, char **argv)
+int *array_num(int argc, char **argv, int *size)
 {
 	size_t	i;
 	size_t	j;
@@ -69,15 +69,14 @@ int *array_num(int argc, char **argv)
 
 	i = 1;
 	j = 0;
-	while (argv[i])
+	array = (int *)malloc(sizeof (int) * (*size));
+	while (i <= *size)
 	{
 		array[j] = ft_atoi (argv[i]);
-		if (array[j] == -1)
-			exit (1);
 		i++;
 		j++;
 	}
-	array[j] = '\0';
+	// array[j] = '\0';
 	return (array);
 }
 
@@ -122,10 +121,10 @@ int	*check_param(int argc, char **argv, int *size)
 	*size = temp;
 	if (not_num (argc, argv))
 		print_error ();
-	array = array_num (argc, aft_argv);
+	array = array_num (argc, aft_argv, size);
 	// make_comp();
 	// make_node (argc, , a);
-	if (check_dup(argc, aft_argv, &size))
+	if (check_dup(array, size))
 		print_error ();
 	return (array);
 }

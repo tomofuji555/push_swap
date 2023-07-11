@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <push_swap.h>
+#include "push_swap.h"
 
 static int	st_isspace(const char *str, size_t *pi)
 {
@@ -50,6 +50,6 @@ int	ft_atoi(const char *str)
 	}
 	rt = num * sign;
 	if (num < INT_MIN || num > INT_MAX)
-		return (-1);
+		print_error ();
 	return ((int)(num * sign));
 }
