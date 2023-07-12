@@ -21,13 +21,13 @@
 //     return (false);
 // }
 
-int    not_num(int argc, char **argv)
+int    not_num(int argc, char **argv, int *size)
 {
 	size_t	i;
 	size_t	j;
 
-	i = 1;
-	while (i < argc)
+	i = 0;
+	while (i < *size)
 	{
 		j = 0;
 		while (argv[i][j])

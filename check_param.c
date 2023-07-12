@@ -123,7 +123,7 @@ int	*check_param(int argc, char **argv, int *size)
 	if (temp > INT_MAX)
 		exit (1);
 	*size = temp;
-	if (not_num (argc, argv))
+	if (not_num (argc, aft_argv, size))
 		print_error ();
 	array = array_num (argc, aft_argv, size);
 	// make_comp();

@@ -31,7 +31,7 @@ void	print_error(void);
 char	**argv_process(int argc, char **argv);
 int     *array_num(int argc, char **argv, int *size);
 long	argv_size (int argc, char **argv);
-int     not_num(int argc, char **argv);
+int    not_num(int argc, char **argv, int *size);
 int     check_dup(int *array, int *size);
 int     ft_atoi(const char *str);
 void    ft_lstadd_back(t_list **lst, t_list *new);
