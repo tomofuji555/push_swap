@@ -32,7 +32,10 @@ char	**argv_process(int argc, char **argv)
 			exit (1);  //処理追加で必要？
 	}
 	else
+	{
+		*argv++;
 		aft_argv = argv;
+	}
 	return (aft_argv);
 }
 
@@ -67,10 +70,10 @@ int *array_num(int argc, char **argv, int *size)
 	int		*array;
 	int		num;
 
-	i = 1;
+	i = 0;
 	j = 0;
 	array = (int *)malloc(sizeof (int) * (*size));
-	while (i <= *size)
+	while (i < *size)
 	{
 		array[j] = ft_atoi (argv[i]);
 		i++;
@@ -96,14 +99,14 @@ long	argv_size (int argc, char **argv)
 			while (argv[i][j])
 			{
 				j++;
-				size++;
 			}
 			i++;
+			size++;
 		}
-		return (size);
+		return (size + 1);
 	}
 	else
-		return (argc -1);
+		return (argc - 1);
 }
 
 int	*check_param(int argc, char **argv, int *size)
@@ -116,6 +119,7 @@ int	*check_param(int argc, char **argv, int *size)
 		exit (1);
 	aft_argv = argv_process (argc, argv);
 	temp = argv_size (argc, aft_argv);
+	// printf ("temp = %ld\n", temp);
 	if (temp > INT_MAX)
 		exit (1);
 	*size = temp;
@@ -126,5 +130,7 @@ int	*check_param(int argc, char **argv, int *size)
 	// make_node (argc, , a);
 	if (check_dup(array, size))
 		print_error ();
+	if (argc == 2)
+		free (aft_argv);
 	return (array);
 }

@@ -32,7 +32,7 @@ int    not_num(int argc, char **argv)
 		j = 0;
 		while (argv[i][j])
 		{
-            if (argv[i][0] == '-' || argv[i][0] == '+')
+            if (argv[i][0] == '-' || argv[i][0] == '+' || argv[i][j] == ' ')
                 j++;
 			else if (argv[i][j] < '0' || argv[i][j] > '9')
 				return (1);

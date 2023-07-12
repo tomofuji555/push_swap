@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/tomok/OneDrive/Desktop/push_swap",
-      "program": "c:/Users/tomok/OneDrive/Desktop/push_swap/build/Debug/outDebug",
+      "cwd": "c:/Users/tomok/OneDrive/Desktop/my_push_swap",
+      "program": "c:/Users/tomok/OneDrive/Desktop/my_push_swap/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
