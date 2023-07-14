@@ -20,9 +20,7 @@ typedef int data_t;
 # include   <stdlib.h>
 
 typedef struct s_list{
-	void			*content;
-    int				index;
-    int				size;
+	int			    *content;
     struct  s_list	*next;
 } t_list;
 
@@ -38,12 +36,13 @@ int     check_dup(int *array, int *size);
 int     ft_atoi(const char *str);
 void    ft_lstadd_back(t_list **lst, t_list *new);
 t_list  *ft_lstlast(t_list *lst);
-t_list  *ft_lstnew(void *content);
+t_list  *ft_lstnew(int *content);
 void    *ft_memset(void *b, int c, size_t len);
 char    **ft_split(char const *s, char c);
 int *order_array(int *array, int *size);
 int *copy_array(int *array, int *size);
 int *compare_array (int *ord_array, int *array, int *size);
 int *coord_comp(int *array, int *size);
+void    make_stack(t_list **head_a, int *array, int *size);
 
 # endif
