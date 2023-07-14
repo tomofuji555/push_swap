@@ -28,6 +28,8 @@ typedef struct s_list{
 
 int     *check_param(int argc, char **argv, int *size);
 void	print_error(void);
+char	*str_copy(int argc, char *argv);
+char	**more_two(int argc, char **argv);
 char	**argv_process(int argc, char **argv);
 int     *array_num(int argc, char **argv, int *size);
 long	argv_size (int argc, char **argv);

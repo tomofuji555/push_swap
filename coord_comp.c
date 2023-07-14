@@ -14,9 +14,9 @@
 
 int *order_array(int *array, int *size)
 {
-    size_t  i;
-    size_t  j;
-    size_t  temp;
+    int  i;
+    int  j;
+    int  temp;
 
     i = 0;
     if (*size <= 1)
@@ -41,7 +41,7 @@ int *order_array(int *array, int *size)
 
 int *copy_array(int *array, int *size)
 {
-    size_t  i;
+    int  i;
     int     *cp_array;
 
     i = 0;
@@ -56,8 +56,8 @@ int *copy_array(int *array, int *size)
 
 int *compare_array (int *ord_array, int *array, int *size)
 {
-    size_t  i;
-    size_t  j;
+    int  i;
+    int  j;
 
     i = 0;
     while (i < *size)
@@ -79,8 +79,6 @@ int *compare_array (int *ord_array, int *array, int *size)
 
 int *coord_comp(int *array, int *size)
 {
-    size_t  i;
-    size_t  j;
     int     *cp_array;
     int     *ord_array;
     int     *rt;

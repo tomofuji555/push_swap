@@ -12,19 +12,29 @@
 
 #include "push_swap.h"
 
-void	print_error(void)
+char	**more_two(int argc, char **argv)
 {
-	printf ("Error\n");
-	exit (1);
+	char **aft_argv;
+	int	i;
+	int	j;
+
+	i = 1;
+	j = 0;
+	aft_argv = (char **)malloc(sizeof(char *) * (argc));
+	while (j < argc - 1)
+	{
+		aft_argv[j] = str_copy(argc, argv[i]);
+		i++;
+		j++;
+	}
+	aft_argv[j] = NULL;
+	return (aft_argv);
 }
 
 char	**argv_process(int argc, char **argv)
 {
 	char	**aft_argv;
-	size_t	i;
-	size_t	j;
 
-	i = 0;
 	if (argc == 2)
 	{
 		aft_argv = ft_split(argv[1], ' ');
@@ -33,15 +43,16 @@ char	**argv_process(int argc, char **argv)
 	}
 	else
 	{
-		*argv++;
-		aft_argv = argv;
+		// *argv++;
+		// aft_argv = argv;
+		aft_argv = more_two (argc, argv);
 	}
 	return (aft_argv);
 }
 
 // void    make_node(int argc, char **argv, t_list **a)
 // {
-//     size_t  i;
+//     int  i;
 //     t_list  *new;
 //     int     num;
 
@@ -65,15 +76,14 @@ char	**argv_process(int argc, char **argv)
 
 int *array_num(int argc, char **argv, int *size)
 {
-	size_t	i;
-	size_t	j;
+	int	i;
+	int	j;
 	int		*array;
-	int		num;
 
 	i = 0;
 	j = 0;
 	array = (int *)malloc(sizeof (int) * (*size));
-	while (i < *size)
+	while (i < *size && argc)
 	{
 		array[j] = ft_atoi (argv[i]);
 		i++;
@@ -86,8 +96,8 @@ int *array_num(int argc, char **argv, int *size)
 long	argv_size (int argc, char **argv)
 {
 	long size;
-	size_t	i;
-	size_t	j;
+	int	i;
+	int	j;
 
 	size = 0;
 	i = 1;
@@ -126,11 +136,8 @@ int	*check_param(int argc, char **argv, int *size)
 	if (not_num (argc, aft_argv, size))
 		print_error ();
 	array = array_num (argc, aft_argv, size);
-	// make_comp();
-	// make_node (argc, , a);
 	if (check_dup(array, size))
 		print_error ();
-	if (argc == 2)
-		free (aft_argv);
+	free (aft_argv);
 	return (array);
 }

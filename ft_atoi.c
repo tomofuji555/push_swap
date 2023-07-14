@@ -37,7 +37,7 @@ int	ft_atoi(const char *str)
 	size_t	i;
 	size_t	pi;
 	long	num;
-	int		rt;
+	long	rt;
 	int		sign;
 
 	sign = st_isspace(str, &pi);
@@ -49,7 +49,7 @@ int	ft_atoi(const char *str)
 		i++;
 	}
 	rt = num * sign;
-	if (num < INT_MIN || num > INT_MAX)
+	if (rt < INT_MIN || rt > INT_MAX)
 		print_error ();
-	return ((int)(num * sign));
+	return ((int)(rt));
 }

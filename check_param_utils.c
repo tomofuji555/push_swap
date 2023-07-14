@@ -21,18 +21,52 @@
 //     return (false);
 // }
 
-int    not_num(int argc, char **argv, int *size)
+int	ft_strlen(char *str)
 {
-	size_t	i;
-	size_t	j;
+	int	i ;
 
 	i = 0;
-	while (i < *size)
+	while (str[i])
+		i++;
+	return (i);
+}
+
+void	print_error(void)
+{
+	printf ("Error\n");
+	exit (1);
+}
+
+char	*str_copy(int argc, char *argv)
+{
+	char	*str;
+	int	i;
+	int	max;
+
+	i = 0;
+	max = ft_strlen (argv);
+	str = (char *)malloc(sizeof(char) * (max + 1));
+	while (i < max && argc)
+	{
+		str[i] = argv[i];
+		i++;
+	}
+	str[i] = '\0';
+	return (str);
+}
+
+int    not_num(int argc, char **argv, int *size)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < *size && argc)
 	{
 		j = 0;
 		while (argv[i][j])
 		{
-            if (argv[i][0] == '-' || argv[i][0] == '+' || argv[i][j] == ' ')
+            if (argv[i][0] == '-' || argv[i][0] == '+' ) //|| argv[i][j] == ' '
                 j++;
 			else if (argv[i][j] < '0' || argv[i][j] > '9')
 				return (1);
