@@ -40,8 +40,8 @@ void	print_error(void)
 char	*str_copy(int argc, char *argv)
 {
 	char	*str;
-	int	i;
-	int	max;
+	int		i;
+	int		max;
 
 	i = 0;
 	max = ft_strlen (argv);
