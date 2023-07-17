@@ -43,7 +43,7 @@ void	swap_4(t_list **head_a, t_list **head_b)
 		pb(head_a, head_b);
 	else if ((*head_a)->next->num == 0)
 	{
-		swap(head_a);
+		sa(head_a);
 		pb(head_a, head_b);
 	}
 	else if ((*head_a)->next->next->num == 0)
@@ -71,7 +71,7 @@ void	swap_5(t_list **head_a, t_list **head_b)
 	pb(head_a, head_b);
 	swap_3(head_a);
 	if ((*head_b)->num < (*head_b)->next->num)
-			sa(head_b);
+			sb(head_b);
 	pa(head_b, head_a);
 	pa(head_b, head_a);
 }
@@ -119,4 +119,5 @@ void	**push_swap(t_list **head_a, t_list **head_b, int *size)
     // rb(head_b);
     // pa(head_b, head_a);
     // return(head_a);
+	return (0);
 }

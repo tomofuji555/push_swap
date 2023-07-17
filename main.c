@@ -27,24 +27,24 @@ int main(int argc, char **argv)
 	array = check_param(argc, argv, &size);
 	array = coord_comp (array, &size);
 	make_stack (&head_a, array, &size);
-	int i = 0;
-	while (i < size)
-	{
-		printf ("%d\n", array[i]);
-		i++;
-	}
-	printf("-----------------------------\n");
-	printf("-----------------------------\n");
+	// int i = 0;
+	// while (i < size)
+	// {
+	// 	printf ("%d\n", array[i]);
+	// 	i++;
+	// }
+	// printf("-----------------------------\n");
+	// printf("-----------------------------\n");
 	// print_list(head_a);
 	push_swap (&head_a, &head_b, &size);
 
-	t_list *current_a = head_a;
-    while (current_a != NULL)
-    {
-        printf("a = %d\n", (current_a->num));
-        current_a = current_a->next;
-    }
-	printf("-----------------------------\n");
+	// t_list *current_a = head_a;
+    // while (current_a != NULL)
+    // {
+    //     printf("a = %d\n", (current_a->num));
+    //     current_a = current_a->next;
+    // }
+	// printf("-----------------------------\n");
 	// t_list	*current_b = head_b;
 	// while (current_b != NULL)
     // {

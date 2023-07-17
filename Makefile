@@ -24,11 +24,27 @@ SRCS = check_param_utils.c \
 	   ft_split.c \
 	   main.c \
 	   make_stack.c \
-	   revesrse.c \
+	   reverse.c \
 	   rotate.c \
 	   swap.c \
 	   push.c \
 	   push_swap.c \
-OBJS = ${SRCS:.c=.o}
+
+OBJS := $(SRCS:.c=.o)
+
+$(NAME): $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME) 
+
+all: $(NAME)
+
+clean:
+	rm -f $(OBJS)
+
+fclean: clean
+	rm -f $(NAME)
+
+re: fclean all
+
+.PHONY:	all clean fclean re
 
 
