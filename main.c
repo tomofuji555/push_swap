@@ -34,20 +34,22 @@ int main(int argc, char **argv)
 		i++;
 	}
 	printf("-----------------------------\n");
-	t_list *current = head_a;
-    while (current != NULL)
-    {
-        printf("%d\n", *(int *)(current->content));
-        current = current->next;
-    }
 	printf("-----------------------------\n");
 	// print_list(head_a);
-	push_swap (&head_a, &head_b);
-	current = head_a;
-    while (current != NULL)
+	push_swap (&head_a, &head_b, &size);
+
+	t_list *current_a = head_a;
+    while (current_a != NULL)
     {
-        printf("%d\n", *(int *)(current->content));
-        current = current->next;
+        printf("a = %d\n", (current_a->num));
+        current_a = current_a->next;
     }
+	printf("-----------------------------\n");
+	// t_list	*current_b = head_b;
+	// while (current_b != NULL)
+    // {
+    //     printf("b = %d\n", *(int *)(current_b->content));
+    //     current_b = current_b->next;
+    // }
 	return (0);
 }

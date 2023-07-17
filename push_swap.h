@@ -21,8 +21,8 @@ typedef int data_t;
 # include   <stdlib.h>
 
 typedef struct s_list{
-	int			    *content;
-    struct  s_list	*next;
+	int				num;
+	struct s_list	*next;
 } t_list;
 
 int		*check_param(int argc, char **argv, int *size);
@@ -36,8 +36,8 @@ int		not_num(int argc, char **argv, int *size);
 int		check_dup(int *array, int *size);
 int		ft_atoi(const char *str);
 void	ft_lstadd_back(t_list **lst, t_list *new);
-t_list 	*ft_lstlast(t_list *lst);
-t_list	*ft_lstnew(int *content);
+t_list	*ft_lstlast(t_list *lst);
+t_list	*ft_lstnew(int num);
 void	*ft_memset(void *b, int c, size_t len);
 char	**ft_split(char const *s, char c);
 int		*order_array(int *array, int *size);
@@ -49,14 +49,21 @@ void    rotate(t_list **stack);
 void	ra(t_list **stack_a);
 void	rb(t_list **stack_b);
 void	rr(t_list **stack_a, t_list **stack_b);
-void    swap(t_list **stack);
-void    sa(t_list **stack_a);
-void    sb(t_list **stack_b);
-void    ss(t_list **stack_a, t_list **stack_b);
-void    reverse(t_list **stack);
-void    rra(t_list **stack_a);
-void    rrb(t_list **stack_b);
-void    rrr(t_list **stack_a, t_list **stack_b);
-t_list  **push_swap(t_list **head_a, t_list **head_b);
+void	swap(t_list **stack);
+void	sa(t_list **stack_a);
+void	sb(t_list **stack_b);
+void	ss(t_list **stack_a, t_list **stack_b);
+void	reverse(t_list **stack);
+void	rra(t_list **stack_a);
+void	rrb(t_list **stack_b);
+void	rrr(t_list **stack_a, t_list **stack_b);
+void	push(t_list **from, t_list **to);
+void	pb(t_list **stack_a, t_list **stack_b);
+void	pa(t_list **stack_b, t_list **stack_a);
+void	**push_swap(t_list **head_a, t_list **head_b, int *size);
+void	swap_3(t_list **stack);
+void	swap_4(t_list **head_a, t_list **head_b);
+void	swap_5(t_list **head_a, t_list **head_b);
+void	**push_swap(t_list **head_a, t_list **head_b, int *size);
 
 # endif

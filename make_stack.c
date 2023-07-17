@@ -20,7 +20,7 @@ void    make_stack(t_list **head_a, int *array, int *size)
     i = 0;
     while (i < *size)
     {
-        node = ft_lstnew (&array[i]);
+        node = ft_lstnew (array[i]);
         ft_lstadd_back (head_a, node);
         i++;
     }
