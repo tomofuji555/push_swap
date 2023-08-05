@@ -14,12 +14,6 @@ void	push(t_list **from, t_list **to)
 	*from = fr_second;
 	*to = fr_first;
 	fr_first->next = to_first;
-	// fr_second = fr_first->next;
-	// if (*to != NULL && to_first->next != NULL)
-	//	to_second = to_first->next;
-	// *from = fr_second;
-	// *to = fr_first;
-	// fr_first->next = to_second;
 }
 
 void	pb(t_list **stack_a, t_list **stack_b)
@@ -37,3 +31,11 @@ void	pa(t_list **stack_b, t_list **stack_a)
 	push (stack_b, stack_a);
 	write (1, "pa\n", 3);
 }
+
+
+// fr_second = fr_first->next;
+	// if (*to != NULL && to_first->next != NULL)
+	//	to_second = to_first->next;
+	// *from = fr_second;
+	// *to = fr_first;
+	// fr_first->next = to_second;

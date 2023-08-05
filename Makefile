@@ -29,6 +29,7 @@ SRCS = check_param_utils.c \
 	   swap.c \
 	   push.c \
 	   push_swap.c \
+	   push_swap_utils.c
 
 OBJS := $(SRCS:.c=.o)
 

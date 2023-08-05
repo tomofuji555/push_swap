@@ -37,7 +37,6 @@ int main(int argc, char **argv)
 	// printf("-----------------------------\n");
 	// print_list(head_a);
 	push_swap (&head_a, &head_b, &size);
-
 	// t_list *current_a = head_a;
     // while (current_a != NULL)
     // {
@@ -48,7 +47,7 @@ int main(int argc, char **argv)
 	// t_list	*current_b = head_b;
 	// while (current_b != NULL)
     // {
-    //     printf("b = %d\n", *(int *)(current_b->content));
+    //     printf("b = %d\n", (current_b->num));
     //     current_b = current_b->next;
     // }
 	return (0);

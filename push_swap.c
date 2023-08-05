@@ -12,112 +12,137 @@
 
 #include "push_swap.h"
 
-void	swap_3(t_list **stack)
+int	list_count(t_list **list)
 {
-	if ((*stack)->num > (*stack)->next->num 
-		&& (*stack)->next->num > (*stack)->next->next->num)
+	int		list_count;
+	t_list	*node;
+
+	list_count = 0;
+	node = *list;
+	while (node)
 	{
-		sa(stack);
-		rra(stack);
+		list_count++;
+		node = node->next;
 	}
-	if ((*stack)->num > (*stack)->next->num
-		&& (*stack)->num < (*stack)->next->next->num)
-		sa(stack);
-	if ((*stack)->num < (*stack)->next->next->num
-		&& (*stack)->next->num > (*stack)->next->next->num)
-	{
-		sa(stack);
-		ra(stack);
-	}
-	if ((*stack)->num > (*stack)->next->num 
-		&& (*stack)->next->num < (*stack)->next->next->num)
-		ra(stack);
-	if ((*stack)->num < (*stack)->next->num 
-		&& (*stack)->num > (*stack)->next->next->num)
-		rra(stack);
+	return (list_count);
 }
 
-void	swap_4(t_list **head_a, t_list **head_b)
+int	where_is_max(t_list **stack, int max)
 {
-	if ((*head_a)->num == 0)
-		pb(head_a, head_b);
-	else if ((*head_a)->next->num == 0)
+	int		i;
+	t_list	*node;
+
+	i = 0;
+	node = *stack;
+	while (node)
 	{
-		sa(head_a);
-		pb(head_a, head_b);
+		if (node->num == max)
+			break;
+		node = node->next;
+		i++;
 	}
-	else if ((*head_a)->next->next->num == 0)
-	{
-		rra(head_a);
-		rra(head_a);
-		pb(head_a, head_b);
-	}
-	else
-	{
-		rra(head_a);
-		pb(head_a, head_b);
-	}
-	swap_3(head_a);
-	pa(head_b, head_a);
+	if (i == 0)
+		return (0);
+	return (i + 1);
 }
 
-void	swap_5(t_list **head_a, t_list **head_b)
-{
-	while ((*head_a)->num != 0 && (*head_a)->num != 1)
-		rra(head_a);
-	pb(head_a, head_b);
-	while ((*head_a)->num != 0 && (*head_a)->num != 1)
-		rra(head_a);
-	pb(head_a, head_b);
-	swap_3(head_a);
-	if ((*head_b)->num < (*head_b)->next->num)
-			sb(head_b);
-	pa(head_b, head_a);
-	pa(head_b, head_a);
-}
-
-// void	swap_6(t_list **head_a, t_list **head_b, int *size)
+// void	push_a_to_b(t_list **head_a, t_list **head_b, int size, int n)
 // {
-// 	// t_list	*current;
-// 	// int		i;
+// 	int	block;
+// 	int	i;
+// 	int	j;
 
-// 	// current = *head_a;
-// 	// i = 0;
-// 	if (*size == 6)
+// 	block = size / n;
+// 	i = 0;
+// 	while (i++ < n)
 // 	{
-
+// 		j = 0;
+// 		while (j < (size / n))
+// 		{
+// 			if ((*head_a)->num < block)
+// 			{
+// 				pb(head_a, head_b);
+// 				j++;
+// 			}
+// 			else
+// 				ra(head_a);
+// 		}
+// 		block = (size / n) * (i + 1);
 // 	}
 // }
 
-// void	m_push_swap
-
-void	**push_swap(t_list **head_a, t_list **head_b, int *size)
+void	push_a_to_b(t_list **head_a, t_list **head_b, int piv, int n)
 {
-	if (*size <= 2)
-	{
-		if ((*head_a)->num > (*head_a)->next->num)
-			sa(head_a);
-	}
-	if (*size == 3)
-		swap_3(head_a);
-	if (*size == 4)
-		swap_4(head_a, head_b);
-	if (*size == 5)
-		swap_5(head_a, head_b);
-	// if (*size == 6)
-	// 	swap_6(head_a, head_b, size);
-	// if (*size >= 6)
-	// 	m_push_swap(head_a, head_b);
+	int	i;
+	int	c1;
+	int	c2;
 
-    // ra(head_a);
-    // sa(head_a);
-    // rra(head_a);
-    // pb(head_a, head_b);
-    // pb(head_a, head_b);
-    // pb(head_a, head_b);
-    // pb(head_a, head_b);
-    // rb(head_b);
-    // pa(head_b, head_a);
-    // return(head_a);
-	return (0);
+	c1 = n / 2;
+	c2 = c1 + 1;
+	while (c1 > 0 && c2 < n)
+	{
+		i = 0;
+		while (i < piv * 2)
+		{
+			if ((*head_a)->num >= (c1 - 1) * piv && (*head_a)->num < c2 * piv)
+			{
+				pb(head_a, head_b);
+				if ((*head_b)->num < (c1 * piv))
+					rb(head_b);
+				i++;
+			}
+			else
+				ra(head_a);
+		}
+		c1--;
+		c2++;
+	}
+}
+
+void	max_push(t_list **head_a, t_list **head_b, int max)
+{
+	int	front;
+	int	back;
+
+	while (max > 0)
+	{
+		if ((*head_b)->num == max)
+		{
+			pa(head_b, head_a);
+			max--;
+		}
+		else
+		{
+			front = where_is_max(head_b, max);
+			back = max - front;
+			if (front < back)
+				rb(head_b);
+			else
+				rrb(head_b);
+		}
+	}
+	pa(head_b, head_a);
+}
+
+void	push_swap(t_list **head_a, t_list **head_b, int *size)
+{
+	int	n;
+	int	piv;
+
+	if (*size <= 6)
+		less_than_6(head_a, head_b, *size);
+	else if (*size > 6)
+	{
+		if (*size <= 150)
+			n = 9;
+		if (*size > 150)
+			n = 19;
+		piv = (*size) / n;
+		push_a_to_b (head_a, head_b, piv, n);
+		while ((*head_a)->next)
+			pb(head_a, head_b);
+		pb(head_a, head_b);
+		max_push(head_a, head_b, (*size - 1));
+	}
+	return ;
 }

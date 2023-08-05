@@ -60,10 +60,16 @@ void	rrr(t_list **stack_a, t_list **stack_b);
 void	push(t_list **from, t_list **to);
 void	pb(t_list **stack_a, t_list **stack_b);
 void	pa(t_list **stack_b, t_list **stack_a);
-void	**push_swap(t_list **head_a, t_list **head_b, int *size);
 void	swap_3(t_list **stack);
 void	swap_4(t_list **head_a, t_list **head_b);
 void	swap_5(t_list **head_a, t_list **head_b);
-void	**push_swap(t_list **head_a, t_list **head_b, int *size);
+void	swap_6(t_list **head_a, t_list **head_b);
+void	less_than_6(t_list **head_a, t_list **head_b, int size);
+int		list_count(t_list **list);
+int		where_is_max(t_list **stack, int max);
+// void	push_or_rotate(t_list **head_a, t_list **head_b, int index, int max);
+void	push_a_to_b(t_list **head_a, t_list **head_b, int piv, int n);
+void	max_push(t_list **head_a, t_list **head_b, int max);
+void	push_swap(t_list **head_a, t_list **head_b, int *size);
 
 # endif
