@@ -14,16 +14,23 @@
 
 char	**more_two(int argc, char **argv)
 {
-	char **aft_argv;
-	int	i;
-	int	j;
+	char	**aft_argv;
+	int		i;
+	int		j;
 
 	i = 1;
 	j = 0;
 	aft_argv = (char **)malloc(sizeof(char *) * (argc));
+	if (!aft_argv)
+		return (NULL);
 	while (j < argc - 1)
 	{
 		aft_argv[j] = str_copy(argc, argv[i]);
+		if (!aft_argv[j])
+		{
+			free(aft_argv);
+			return (NULL);
+		}
 		i++;
 		j++;
 	}
@@ -39,65 +46,45 @@ char	**argv_process(int argc, char **argv)
 	{
 		aft_argv = ft_split(argv[1], ' ');
 		if (!aft_argv)
-			exit (1);  //処理追加で必要？
+			exit (1);
 	}
 	else
 	{
-		// *argv++;
-		// aft_argv = argv;
 		aft_argv = more_two (argc, argv);
+		if (!aft_argv)
+			exit (1);
 	}
 	return (aft_argv);
 }
 
-// void    make_node(int argc, char **argv, t_list **a)
-// {
-//     int  i;
-//     t_list  *new;
-//     int     num;
-
-//     i = 1;
-//     while (argv[i])
-//     {
-//         num = ft_atoi (argv[i]);
-//         if (num == -1) //num > int_max || num < int_min
-//             return (-1);
-//         new = ft_lstnew (&num);
-//         if (!new)
-//         {
-//             free (new);
-//         }
-//         ft_lstadd_back (a, new);
-//         i++;
-//     }
-//     if (i == 1) //aft_argv=1 error
-//         exit (0);
-// }
-
-int *array_num(int argc, char **argv, int *size)
+int	*array_num(int argc, char **argv, int *size)
 {
-	int	i;
-	int	j;
+	int		i;
+	int		j;
 	int		*array;
 
 	i = 0;
 	j = 0;
 	array = (int *)malloc(sizeof (int) * (*size));
+	if (!array)
+	{
+		free_aft_argv (argv);
+		exit (1);
+	}
 	while (i < *size && argc)
 	{
-		array[j] = ft_atoi (argv[i]);
+		array[j] = ft_atoi (argv[i], argv, array);
 		i++;
 		j++;
 	}
-	// array[j] = '\0';
 	return (array);
 }
 
-long	argv_size (int argc, char **argv)
+long	argv_size(int argc, char **argv)
 {
-	long size;
-	int	i;
-	int	j;
+	long	size;
+	int		i;
+	int		j;
 
 	size = 0;
 	i = 1;
@@ -125,19 +112,21 @@ int	*check_param(int argc, char **argv, int *size)
 	long	temp;
 	int		*array;
 
-	if (argc <= 1)  //empty_param(argc, argv)
+	if (argc <= 1)
 		exit (1);
 	aft_argv = argv_process (argc, argv);
 	temp = argv_size (argc, aft_argv);
-	// printf ("temp = %ld\n", temp);
-	if (temp > INT_MAX)
+	if (temp > INT_MAX || temp <= 1)
+	{
+		free_aft_argv(aft_argv);
 		exit (1);
+	}
 	*size = temp;
 	if (not_num (argc, aft_argv, size))
-		print_error ();
+		print_error (NULL);
 	array = array_num (argc, aft_argv, size);
+	free_aft_argv(aft_argv);
 	if (check_dup(array, size))
-		print_error ();
-	free (aft_argv);
+		print_error (array);
 	return (array);
 }

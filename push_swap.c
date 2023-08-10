@@ -12,21 +12,6 @@
 
 #include "push_swap.h"
 
-int	list_count(t_list **list)
-{
-	int		list_count;
-	t_list	*node;
-
-	list_count = 0;
-	node = *list;
-	while (node)
-	{
-		list_count++;
-		node = node->next;
-	}
-	return (list_count);
-}
-
 int	where_is_max(t_list **stack, int max)
 {
 	int		i;
@@ -37,7 +22,7 @@ int	where_is_max(t_list **stack, int max)
 	while (node)
 	{
 		if (node->num == max)
-			break;
+			break ;
 		node = node->next;
 		i++;
 	}
@@ -45,31 +30,6 @@ int	where_is_max(t_list **stack, int max)
 		return (0);
 	return (i + 1);
 }
-
-// void	push_a_to_b(t_list **head_a, t_list **head_b, int size, int n)
-// {
-// 	int	block;
-// 	int	i;
-// 	int	j;
-
-// 	block = size / n;
-// 	i = 0;
-// 	while (i++ < n)
-// 	{
-// 		j = 0;
-// 		while (j < (size / n))
-// 		{
-// 			if ((*head_a)->num < block)
-// 			{
-// 				pb(head_a, head_b);
-// 				j++;
-// 			}
-// 			else
-// 				ra(head_a);
-// 		}
-// 		block = (size / n) * (i + 1);
-// 	}
-// }
 
 void	push_a_to_b(t_list **head_a, t_list **head_b, int piv, int n)
 {
@@ -136,7 +96,7 @@ void	push_swap(t_list **head_a, t_list **head_b, int *size)
 		if (*size <= 150)
 			n = 9;
 		if (*size > 150)
-			n = 19;
+			n = 17;
 		piv = (*size) / n;
 		push_a_to_b (head_a, head_b, piv, n);
 		while ((*head_a)->next)

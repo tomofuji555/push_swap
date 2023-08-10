@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/25 18:28:43 by marvin            #+#    #+#             */
-/*   Updated: 2023/06/25 18:28:43 by marvin           ###   ########.fr       */
+/*   Created: 2023/08/10 02:03:40 by marvin            #+#    #+#             */
+/*   Updated: 2023/08/10 02:03:40 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+void	ft_putstr_fd(char *s, int fd)
 {
-	t_list	*last;
+	size_t	i;
+	size_t	len;
 
-	if (lst)
+	if (!s)
+		return ;
+	i = 0;
+	len = ft_strlen(s);
+	while (i < len)
 	{
-		if (*lst)
-		{
-			last = ft_lstlast(*lst);
-			last->next = new;
-		}
-		else
-			*lst = new;
+		write (fd, &s[i], 1);
+		i++;
 	}
 }

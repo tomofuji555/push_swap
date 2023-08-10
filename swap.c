@@ -20,9 +20,6 @@ void	swap(t_list **stack)
 
 	if (*stack == NULL || (*stack)->next == NULL)
 		return ;
-    // second = first;
-    // first = third;
-    // *stack = second;
 	first = *stack;
 	second = first->next;
 	third = second->next;
@@ -52,7 +49,7 @@ void	ss(t_list **stack_a, t_list **stack_b)
 	if (*stack_a == NULL || (*stack_a)->next == NULL)
 		return ;
 	if (*stack_b == NULL || (*stack_b)->next == NULL)
-	return ;
+		return ;
 	swap(stack_b);
 	swap(stack_b);
 	write(1, "ss\n", 3);

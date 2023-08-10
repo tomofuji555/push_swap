@@ -12,17 +12,17 @@
 
 #include "push_swap.h"
 
-void    make_stack(t_list **head_a, int *array, int *size)
+void	make_stack(t_list **head_a, int *array, int *size)
 {
-    t_list  *node;
-    int     i;
+	t_list	*node;
+	int		i;
 
-    i = 0;
-    while (i < *size)
-    {
-        node = ft_lstnew (array[i]);
-        ft_lstadd_back (head_a, node);
-        i++;
-    }
-    return ;
+	i = 0;
+	while (i < *size)
+	{
+		node = ft_lstnew (array[i]);
+		ft_lstadd_back (head_a, node);
+		i++;
+	}
+	return ;
 }

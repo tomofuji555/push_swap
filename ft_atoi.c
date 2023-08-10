@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-static int	st_isspace(const char *str, size_t *pi)
+static int	st_isspace(char *str, size_t *pi)
 {
 	size_t	i;
 	int		sign;
@@ -32,7 +32,7 @@ static int	st_isspace(const char *str, size_t *pi)
 	return (sign);
 }
 
-int	ft_atoi(const char *str)
+int	ft_atoi(char *str, char **argv, int *array)
 {
 	size_t	i;
 	size_t	pi;
@@ -50,6 +50,9 @@ int	ft_atoi(const char *str)
 	}
 	rt = num * sign;
 	if (rt < INT_MIN || rt > INT_MAX)
-		print_error ();
-	return ((int)(rt));
+	{
+		free_aft_argv (argv);
+		free_exit (array);
+	}
+	return ((int)rt);
 }

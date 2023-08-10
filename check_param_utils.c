@@ -1,25 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   check_param_utils.c                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/08 02:11:25 by marvin            #+#    #+#             */
+/*   Updated: 2023/08/08 02:11:25 by marvin           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
-#include <stdbool.h>
-
-// bool    empty_param(int argc, char **argv)
-// {
-//     size_t  i;
-//     size_t  j;
-
-//     i = 1;
-//     while (argv[i])
-//     {
-//         j = 0;
-//         while (argv[i][j] != '\0')
-//         {
-//             if (argv[i][j] == ' ')
-//                 return (true);
-//             j++;
-//         }
-//         i++;
-//     }
-//     return (false);
-// }
 
 int	ft_strlen(char *str)
 {
@@ -31,12 +22,6 @@ int	ft_strlen(char *str)
 	return (i);
 }
 
-void	print_error(void)
-{
-	printf ("Error\n");
-	exit (1);
-}
-
 char	*str_copy(int argc, char *argv)
 {
 	char	*str;
@@ -46,6 +31,8 @@ char	*str_copy(int argc, char *argv)
 	i = 0;
 	max = ft_strlen (argv);
 	str = (char *)malloc(sizeof(char) * (max + 1));
+	if (!str)
+		return (NULL);
 	while (i < max && argc)
 	{
 		str[i] = argv[i];
@@ -55,7 +42,7 @@ char	*str_copy(int argc, char *argv)
 	return (str);
 }
 
-int    not_num(int argc, char **argv, int *size)
+int	not_num(int argc, char **argv, int *size)
 {
 	int	i;
 	int	j;
@@ -66,23 +53,23 @@ int    not_num(int argc, char **argv, int *size)
 		j = 0;
 		while (argv[i][j])
 		{
-            if (argv[i][0] == '-' || argv[i][0] == '+' ) //|| argv[i][j] == ' '
-                j++;
+			if (argv[i][0] == '-' || argv[i][0] == '+' )
+				j++;
 			else if (argv[i][j] < '0' || argv[i][j] > '9')
 				return (1);
 			else
-                j++;
+				j++;
 		}
 		i++;
 	}
 	return (0);
 }
 
-int check_dup(int *array, int *size)
+int	check_dup(int *array, int *size)
 {
 	int	i;
 	int	j;
-	
+
 	i = 0;
 	while (i < *size - 1)
 	{
@@ -97,39 +84,3 @@ int check_dup(int *array, int *size)
 	}
 	return (0);
 }
-
-// int *ori_strcpy (int *dest, char *src)
-// {
-// 	int	i;
-// 	i = 0;
-// 	while (src[i])
-// 		dest[i++] = (int)src[i++];
-// 	dest[i] = '\0';
-// 	return (dest);
-// }
-
-// int **put_to_array(int argc, char **argv)
-// {
-// 	int **new;
-// 	int i = 1;
-// 	int j = 0;
-// 	int k = 0;
-// 	if (argc <= 2)
-// 		exit (1);
-// 	if (argc > 2)
-// 	{
-// 		new = (int **)malloc(sizeof(int *) * argc);
-// 		while (argv[i])
-// 		{
-// 			j = 0;
-// 			while (argv[i][j])
-// 				j++;
-// 			new[k] = (int *)malloc(sizeof(int) *(j + 1));
-// 			ori_strcpy(new[k], argv[i]);
-// 			k++;
-// 			i++;
-// 		}
-// 		new[k] = NULL;
-// 	}
-// 	return new;
-// }

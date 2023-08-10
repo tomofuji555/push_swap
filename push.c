@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/08 02:01:21 by marvin            #+#    #+#             */
+/*   Updated: 2023/08/08 02:01:21 by marvin           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	push(t_list **from, t_list **to)
@@ -31,11 +43,3 @@ void	pa(t_list **stack_b, t_list **stack_a)
 	push (stack_b, stack_a);
 	write (1, "pa\n", 3);
 }
-
-
-// fr_second = fr_first->next;
-	// if (*to != NULL && to_first->next != NULL)
-	//	to_second = to_first->next;
-	// *from = fr_second;
-	// *to = fr_first;
-	// fr_first->next = to_second;

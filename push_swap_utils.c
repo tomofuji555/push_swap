@@ -71,14 +71,14 @@ void	swap_5(t_list **head_a, t_list **head_b)
 	pb(head_a, head_b);
 	swap_3(head_a);
 	if ((*head_b)->num < (*head_b)->next->num)
-			sb(head_b);
+		sb(head_b);
 	pa(head_b, head_a);
 	pa(head_b, head_a);
 }
 
 void	swap_6(t_list **head_a, t_list **head_b)
 {
-    while ((*head_a)->num != 0)
+	while ((*head_a)->num != 0)
 		rra(head_a);
 	pb(head_a, head_b);
 	while ((*head_a)->num != 1)

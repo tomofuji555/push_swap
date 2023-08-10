@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/25 18:28:43 by marvin            #+#    #+#             */
-/*   Updated: 2023/06/25 18:28:43 by marvin           ###   ########.fr       */
+/*   Created: 2023/08/10 02:56:17 by marvin            #+#    #+#             */
+/*   Updated: 2023/08/10 02:56:17 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	t_list	*last;
+	const char	*s;
+	size_t		i;
+	char		*d;
 
-	if (lst)
+	d = (char *) dest;
+	s = (const char *) src;
+	i = 0;
+	if (!dest && !src)
+		return (NULL);
+	while (i < n)
 	{
-		if (*lst)
-		{
-			last = ft_lstlast(*lst);
-			last->next = new;
-		}
-		else
-			*lst = new;
+		d[i] = s[i];
+		i++;
 	}
+	return (dest);
 }

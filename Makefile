@@ -20,8 +20,9 @@ SRCS = check_param_utils.c \
 	   ft_lstadd_back.c \
 	   ft_lstlast.c \
 	   ft_lstnew.c \
-	   ft_memset.c \
 	   ft_split.c \
+	   ft_memcpy.c \
+	   ft_putstr_fd.c \
 	   main.c \
 	   make_stack.c \
 	   reverse.c \
@@ -29,7 +30,8 @@ SRCS = check_param_utils.c \
 	   swap.c \
 	   push.c \
 	   push_swap.c \
-	   push_swap_utils.c
+	   push_swap_utils.c \
+	   free.c
 
 OBJS := $(SRCS:.c=.o)
 
