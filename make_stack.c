@@ -21,6 +21,8 @@ void	make_stack(t_list **head_a, int *array, int *size)
 	while (i < *size)
 	{
 		node = ft_lstnew (array[i]);
+		if (node == NULL)
+			free_exit (array);
 		ft_lstadd_back (head_a, node);
 		i++;
 	}

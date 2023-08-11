@@ -18,7 +18,7 @@ t_list	*ft_lstnew(int num)
 
 	node = (t_list *) malloc (sizeof (t_list));
 	if (node == NULL)
-		exit (1);
+		return (NULL);
 	node->num = num;
 	node->next = NULL;
 	return (node);

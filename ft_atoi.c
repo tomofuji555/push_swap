@@ -24,12 +24,24 @@ static int	st_isspace(char *str, size_t *pi)
 		i++;
 	if (str[i] == '-' || str[i] == '+')
 	{
-		if (str[i] == '-')
+		if (str[i] == '-' && (str[i + 1] >= '0' || str[i + 1] <= '9'))
 			sign *= -1;
+		if (str[i] == '-' && (str[i + 1] < '0' || str[i + 1] > '9'))
+			sign = 0;
+		if (str[i] == '+' && (str[i + 1] < '0' || str[i + 1] > '9'))
+			sign = 0;
 		i++;
 	}
 	*pi = i;
 	return (sign);
+}
+
+static void	free_atoi(char **argv, int *array)
+{
+	free_aft_argv (argv);
+	free (array);
+	ft_putstr_fd ("Error\n", 2);
+	exit (1);
 }
 
 int	ft_atoi(char *str, char **argv, int *array)
@@ -41,6 +53,8 @@ int	ft_atoi(char *str, char **argv, int *array)
 	int		sign;
 
 	sign = st_isspace(str, &pi);
+	if (sign == 0)
+		free_atoi(argv, array);
 	i = pi;
 	num = 0;
 	while (str[i] != '\0' && str[i] >= '0' && str[i] <= '9')
@@ -52,7 +66,7 @@ int	ft_atoi(char *str, char **argv, int *array)
 	if (rt < INT_MIN || rt > INT_MAX)
 	{
 		free_aft_argv (argv);
-		free_exit (array);
+		print_error (array);
 	}
-	return ((int)rt);
+	return (rt);
 }

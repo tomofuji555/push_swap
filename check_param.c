@@ -117,13 +117,13 @@ int	*check_param(int argc, char **argv, int *size)
 	aft_argv = argv_process (argc, argv);
 	temp = argv_size (argc, aft_argv);
 	if (temp > INT_MAX || temp <= 1)
-	{
-		free_aft_argv(aft_argv);
-		exit (1);
-	}
+		free_aft_argv_exit(aft_argv);
 	*size = temp;
 	if (not_num (argc, aft_argv, size))
-		print_error (NULL);
+	{
+		ft_putstr_fd ("Error\n", 2);
+		free_aft_argv_exit (aft_argv);
+	}
 	array = array_num (argc, aft_argv, size);
 	free_aft_argv(aft_argv);
 	if (check_dup(array, size))

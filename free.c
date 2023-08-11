@@ -51,3 +51,18 @@ void	free_aft_argv(char **aft_argv)
 	}
 	free (aft_argv);
 }
+
+void	free_aft_argv_exit(char **aft_argv)
+{
+	size_t	i;
+
+	i = 0;
+	while (aft_argv[i])
+	{
+		free (aft_argv[i]);
+		aft_argv[i] = NULL;
+		i++;
+	}
+	free (aft_argv);
+	exit (1);
+}
