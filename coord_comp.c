@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   coord_comp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tofujiwa <tofujiwa@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/30 18:37:39 by marvin            #+#    #+#             */
-/*   Updated: 2023/06/30 18:37:39 by marvin           ###   ########.fr       */
+/*   Created: 2023/08/16 19:17:38 by tofujiwa          #+#    #+#             */
+/*   Updated: 2023/08/16 19:17:38 by tofujiwa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,8 +91,6 @@ int	*coord_comp(int *array, int *size)
 	int	*ord_array;
 	int	*rt;
 
-	if (*size == 1)
-		exit (1);
 	cp_array = (int *)malloc(sizeof(int) * (*size));
 	ft_memcpy(cp_array, array, sizeof(int) * (*size));
 	ord_array = order_array (cp_array, size);

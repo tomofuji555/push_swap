@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tofujiwa <tofujiwa@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/18 17:48:16 by marvin            #+#    #+#             */
-/*   Updated: 2023/07/18 17:48:16 by marvin           ###   ########.fr       */
+/*   Created: 2023/08/16 19:19:29 by tofujiwa          #+#    #+#             */
+/*   Updated: 2023/08/16 19:19:29 by tofujiwa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	swap_3(t_list **stack)
+void	sort_3(t_list **stack)
 {
 	if ((*stack)->num > (*stack)->next->num 
 		&& (*stack)->next->num > (*stack)->next->next->num)
@@ -37,7 +37,7 @@ void	swap_3(t_list **stack)
 		rra(stack);
 }
 
-void	swap_4(t_list **head_a, t_list **head_b)
+void	sort_4(t_list **head_a, t_list **head_b)
 {
 	if ((*head_a)->num == 0)
 		pb(head_a, head_b);
@@ -57,11 +57,11 @@ void	swap_4(t_list **head_a, t_list **head_b)
 		rra(head_a);
 		pb(head_a, head_b);
 	}
-	swap_3(head_a);
+	sort_3(head_a);
 	pa(head_b, head_a);
 }
 
-void	swap_5(t_list **head_a, t_list **head_b)
+void	sort_5(t_list **head_a, t_list **head_b)
 {
 	while ((*head_a)->num != 0 && (*head_a)->num != 1)
 		rra(head_a);
@@ -69,14 +69,14 @@ void	swap_5(t_list **head_a, t_list **head_b)
 	while ((*head_a)->num != 0 && (*head_a)->num != 1)
 		rra(head_a);
 	pb(head_a, head_b);
-	swap_3(head_a);
+	sort_3(head_a);
 	if ((*head_b)->num < (*head_b)->next->num)
 		sb(head_b);
 	pa(head_b, head_a);
 	pa(head_b, head_a);
 }
 
-void	swap_6(t_list **head_a, t_list **head_b)
+void	sort_6(t_list **head_a, t_list **head_b)
 {
 	while ((*head_a)->num != 0)
 		rra(head_a);
@@ -87,7 +87,7 @@ void	swap_6(t_list **head_a, t_list **head_b)
 	while ((*head_a)->num != 2)
 		rra(head_a);
 	pb(head_a, head_b);
-	swap_3(head_a);
+	sort_3(head_a);
 	pa(head_b, head_a);
 	pa(head_b, head_a);
 	pa(head_b, head_a);
@@ -101,11 +101,11 @@ void	less_than_6(t_list **head_a, t_list **head_b, int size)
 			sa(head_a);
 	}
 	else if (size == 3)
-		swap_3(head_a);
+		sort_3(head_a);
 	else if (size == 4)
-		swap_4(head_a, head_b);
+		sort_4(head_a, head_b);
 	else if (size == 5)
-		swap_5(head_a, head_b);
+		sort_5(head_a, head_b);
 	else if (size == 6)
-		swap_6(head_a, head_b);
+		sort_6(head_a, head_b);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_param.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tofujiwa <tofujiwa@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/25 14:31:29 by marvin            #+#    #+#             */
-/*   Updated: 2023/06/25 14:31:29 by marvin           ###   ########.fr       */
+/*   Created: 2023/08/16 19:17:10 by tofujiwa          #+#    #+#             */
+/*   Updated: 2023/08/16 19:17:10 by tofujiwa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ int	*array_num(int argc, char **argv, int *size)
 	}
 	while (i < *size && argc)
 	{
-		array[j] = ft_atoi (argv[i], argv, array);
+		array[j] = ft_atoi (argv[i], argv, array, *size);
 		i++;
 		j++;
 	}
@@ -112,11 +112,9 @@ int	*check_param(int argc, char **argv, int *size)
 	long	temp;
 	int		*array;
 
-	if (argc <= 1)
-		exit (1);
 	aft_argv = argv_process (argc, argv);
 	temp = argv_size (argc, aft_argv);
-	if (temp > INT_MAX || temp <= 1)
+	if (temp > INT_MAX)
 		free_aft_argv_exit(aft_argv);
 	*size = temp;
 	if (not_num (argc, aft_argv, size))

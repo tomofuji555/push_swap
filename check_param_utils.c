@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_param_utils.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tofujiwa <tofujiwa@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/08 02:11:25 by marvin            #+#    #+#             */
-/*   Updated: 2023/08/08 02:11:25 by marvin           ###   ########.fr       */
+/*   Created: 2023/08/16 19:17:23 by tofujiwa          #+#    #+#             */
+/*   Updated: 2023/08/16 19:17:23 by tofujiwa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,10 @@ int	not_num(int argc, char **argv, int *size)
 		j = 0;
 		while (argv[i][j])
 		{
-			if (argv[i][0] == '-' || argv[i][0] == '+' )
+			if (j == 0 && (argv[i][j] == '-' || argv[i][j] == '+'))
 				j++;
+			else if (argv[i][j] == '-' || argv[i][j] == '+')
+				return (1);
 			else if (argv[i][j] < '0' || argv[i][j] > '9')
 				return (1);
 			else

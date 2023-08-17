@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tofujiwa <tofujiwa@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/26 20:24:00 by marvin            #+#    #+#             */
-/*   Updated: 2023/06/26 20:24:00 by marvin           ###   ########.fr       */
+/*   Created: 2023/08/16 19:19:47 by tofujiwa          #+#    #+#             */
+/*   Updated: 2023/08/16 19:19:47 by tofujiwa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	free_exit(void *content);
 void	double_free(void *a, void *b);
 int		not_num(int argc, char **argv, int *size);
 int		check_dup(int *array, int *size);
-int		ft_atoi(char *str, char **argv, int *array);
+int		ft_atoi(char *str, char **argv, int *array, int size);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 t_list	*ft_lstlast(t_list *lst);
 t_list	*ft_lstnew(int num);
@@ -64,10 +64,10 @@ void	rrr(t_list **stack_a, t_list **stack_b);
 void	push(t_list **from, t_list **to);
 void	pb(t_list **stack_a, t_list **stack_b);
 void	pa(t_list **stack_b, t_list **stack_a);
-void	swap_3(t_list **stack);
-void	swap_4(t_list **head_a, t_list **head_b);
-void	swap_5(t_list **head_a, t_list **head_b);
-void	swap_6(t_list **head_a, t_list **head_b);
+void	sort_3(t_list **stack);
+void	sort_4(t_list **head_a, t_list **head_b);
+void	sort_5(t_list **head_a, t_list **head_b);
+void	sort_6(t_list **head_a, t_list **head_b);
 void	less_than_6(t_list **head_a, t_list **head_b, int size);
 int		where_is_max(t_list **stack, int max);
 void	push_a_to_b(t_list **head_a, t_list **head_b, int piv, int n);

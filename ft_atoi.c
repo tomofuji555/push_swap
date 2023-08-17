@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tofujiwa <tofujiwa@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/25 14:31:07 by marvin            #+#    #+#             */
-/*   Updated: 2023/06/25 14:31:07 by marvin           ###   ########.fr       */
+/*   Created: 2023/08/16 19:17:55 by tofujiwa          #+#    #+#             */
+/*   Updated: 2023/08/16 19:17:55 by tofujiwa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static void	free_atoi(char **argv, int *array)
 	exit (1);
 }
 
-int	ft_atoi(char *str, char **argv, int *array)
+int	ft_atoi(char *str, char **argv, int *array, int size)
 {
 	size_t	i;
 	size_t	pi;
@@ -63,10 +63,8 @@ int	ft_atoi(char *str, char **argv, int *array)
 		i++;
 	}
 	rt = num * sign;
-	if (rt < INT_MIN || rt > INT_MAX)
-	{
-		free_aft_argv (argv);
-		print_error (array);
-	}
+	if (rt < INT_MIN || rt > INT_MAX
+		|| ((rt < INT_MIN || rt > INT_MAX) && size <= 1))
+		free_atoi(argv, array);
 	return (rt);
 }
